@@ -18,7 +18,12 @@ class UsersController < ApplicationController
       image_url: params[:image_url],
 
     )
-    render template: "users/show"
+    if user.save
+      render json: { message: "User created successfully" }, status: :created
+    else
+      render json: { errors: user.errors.full_messages }, status: :bad_request
+    end
+    #render template: "users/show"
   end
 
   def update
