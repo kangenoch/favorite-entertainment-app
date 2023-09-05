@@ -1,12 +1,12 @@
 class ItemsController < ApplicationController
   def index
     @items = Item.all
-    render template: "items/index"
+    render :index #template: "items/index"
   end
 
   def show
-    @item = Item.find_by(params[:id])
-    render template: "items/show"
+    @item = Item.find_by(id: params[:id])
+    render :show #template: "items/show"
   end
 
   def create
@@ -16,23 +16,28 @@ class ItemsController < ApplicationController
       description: params[:description],
       category: params[:category],
     )
-    render template: "items/show"
+    if @item.save
+      render json: { message: "Item created successfully" }, status: :created
+    else
+      render json: { errors: @item.errors.full_messages }, status: :bad_request
+    end
+    #render :show #template: "items/show"
   end
 
   def update
-    @item = Item.find_by(params[:id])
+    @item = Item.find_by(id: params[:id])
     if @item.update(
       name: params[:name] || @item.name,
       image_url: params[:image_url] || @item.image_url,
       description: params[:description] || @item.description,
       category: params[:category] || @item.category,
     )
-      render template: "items/show"
+      render :show #template: "items/show"
     end
   end
 
   def destroy
-    @item = Item.find_by(params[:id])
+    @item = Item.find_by(id: params[:id])
     @item.destroy
   end
 end

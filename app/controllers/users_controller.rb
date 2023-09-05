@@ -1,12 +1,12 @@
 class UsersController < ApplicationController
   def index
     @users = User.all
-    render template: "users/index"
+    render :index #template: "users/index"
   end
 
   def show
-    @user = User.find_by(params[:id])
-    render template: "users/show"
+    @user = User.find_by(id: params[:id])
+    render :show
   end
 
   def create
@@ -27,18 +27,18 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.find_by(params[:id])
+    @user = User.find_by(id: params[:id])
     if @user.update(
       name: params[:name] || @user.name,
       email: params[:email] || @user.email,
       image_url: params[:image_url] || @user.image_url,
     )
-      render template: "users/show"
+      render :show #template: "users/show"
     end
   end
 
   def destroy
-    @user = User.find_by(params[:id])
+    @user = User.find_by(id: params[:id])
     @user.destroy
   end
 end

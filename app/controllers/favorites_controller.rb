@@ -1,12 +1,12 @@
 class FavoritesController < ApplicationController
   def index
     @favorites = Favorite.all
-    render template: "favorites/index"
+    render :index #template: "favorites/index"
   end
 
   def show
-    @favorite = Favorite.find_by(params[:id])
-    render template: "favorites/show"
+    @favorite = Favorite.find_by(id: params[:id])
+    render :show #template: "favorites/show"
   end
 
   def create
@@ -18,18 +18,18 @@ class FavoritesController < ApplicationController
   end
 
   def update
-    @favorite = Favorite.find_by(params[:id])
+    @favorite = Favorite.find_by(id: params[:id])
     if @favorite.update(
       user_id: params[:user_id] || @favorite.user_id,
       item_id: params[:item_id] || @favorite.item_id,
 
     )
-      render template: "favorites/show"
+      render :show #template: "favorites/show"
     end
   end
 
   def destroy
-    @favorite = Favorite.find_by(params[:id])
+    @favorite = Favorite.find_by(id: params[:id])
     @favorite.destroy
   end
 end
