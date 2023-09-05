@@ -22,7 +22,10 @@ Rails.application.routes.draw do
   patch "/favorites/:id", to: "favorites#update"
   delete "/favorites/:id", to: "favorites#destroy"
 
+  get "/sessions", to: "sessions#create"
+
   resource :users
   resource :items
   resource :favorites
+  resource :sessions
 end
