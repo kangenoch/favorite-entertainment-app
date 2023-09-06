@@ -6,14 +6,14 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 User.create!([
-  { name: "Tony Stark", email: "tony@example.com", password: "password", password_confirmation: "password" },
-  { name: "Steve Rogers", email: "steve@example.com", password: "password", password_confirmation: "password" },
-  { name: "Thor", email: "thor@example.com", password: "password", password_confirmation: "password" },
-  { name: "Bruce Banner", email: "bruce@example.com", password: "password", password_confirmation: "password" },
-  { name: "Natasha Romanoff", email: "natasha@example.com", password: "password", password_confirmation: "password" },
-  { name: "Clint Barton", email: "clint@example.com", password: "password", password_confirmation: "password" },
-  { name: "Wanda Maximoff", email: "wanda@example.com", password: "password", password_confirmation: "password" },
-  { name: "Vision", email: "vision@example.com", password: "password", password_confirmation: "password" },
+  { name: "Tony Stark", email: "tony@example.com", password: "password", password_confirmation: "password", image_url: "https://clipart-library.com/2023/cf013fec4671fad46ad45ed28e2b26a1.jpg" },
+  { name: "Steve Rogers", email: "steve@example.com", password: "password", password_confirmation: "password", image_url: "https://cdn.pixabay.com/photo/2021/11/12/14/33/captain-america-6789190_1280.jpg" },
+  { name: "Thor", email: "thor@example.com", password: "password", password_confirmation: "password", image_url: "https://us.123rf.com/450wm/comodo777/comodo7772109/comodo777210900007/177231942-a-vector-of-thor-from-norse-mythology.jpg?ver=6" },
+  { name: "Bruce Banner", email: "bruce@example.com", password: "password", password_confirmation: "password", image_url: "https://i.pinimg.com/1200x/93/b4/d3/93b4d319622496b916903cd2e9ce0488.jpg" },
+  { name: "Natasha Romanoff", email: "natasha@example.com", password: "password", password_confirmation: "password", image_url: "https://mystickermania.com/cdn/stickers/4/1771-512x512.png" },
+  { name: "Clint Barton", email: "clint@example.com", password: "password", password_confirmation: "password", image_url: "https://e7.pngegg.com/pngimages/717/557/png-clipart-clint-barton-iron-man-loki-hulk-drawing-hawkeye-avengers-photography.png" },
+  { name: "Wanda Maximoff", email: "wanda@example.com", password: "password", password_confirmation: "password", image_url: "https://pngfre.com/wp-content/uploads/wanda-maximoff-7-611x1024.png" },
+  { name: "Vision", email: "vision@example.com", password: "password", password_confirmation: "password", image_url: "https://e7.pngegg.com/pngimages/717/557/png-clipart-clint-barton-iron-man-loki-hulk-drawing-hawkeye-avengers-photography.png" },
 ])
 
 Favorite.create!([
