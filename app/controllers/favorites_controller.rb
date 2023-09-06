@@ -13,7 +13,7 @@ class FavoritesController < ApplicationController
 
   def create
     @favorite = Favorite.create(
-      user_id: params[:user_id],
+      user_id: current_user.id, #params[:user_id],
       item_id: params[:item_id],
     )
     if @favorite.save
@@ -29,7 +29,7 @@ class FavoritesController < ApplicationController
     if @favorite.user_id != current_user.id
       render json: { errors: "You are not authorized to update this favorite" }, status: :unauthorized
     elsif @favorite.update(
-      user_id: params[:user_id] || @favorite.user_id,
+      user_id: current_user.id || @favorite.user_id,
       item_id: params[:item_id] || @favorite.item_id,
 
     )
