@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   #get "/favorites/:id", to: "favorites#show"
   post "/favorites", to: "favorites#create"
   #patch "/favorites/:id", to: "favorites#update"
-  #delete "/favorites/:id", to: "favorites#destroy"
+  delete "/favorites/:id", to: "favorites#destroy"
 
   post "/sessions", to: "sessions#create"
 end
