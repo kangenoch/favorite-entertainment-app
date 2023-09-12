@@ -18,7 +18,7 @@ class FavoritesController < ApplicationController
 
     if checkfavorite == true 
       
-      render json: {message: "Item already exists"}, status: :bad_request
+      render json: {message: "Item already exists"}, status: :accepted
     else
     @favorite = Favorite.create(
       user_id: current_user.id, #params[:user_id],
