@@ -12,15 +12,26 @@ class FavoritesController < ApplicationController
   end
 
   def create
+    
+    checkfavorite = Favorite.where(user_id: current_user.id, item_id: params[:item_id]).exists?
+
+
+    if checkfavorite == true 
+      
+      render json: {message: "Item already exists"}, status: :bad_request
+    else
     @favorite = Favorite.create(
       user_id: current_user.id, #params[:user_id],
       item_id: params[:item_id],
     )
-    if @favorite.save
-      render json: { message: "Favorite created successfully" }, status: :created
-    else
-      render json: { errors: @favorite.errors.full_messages }, status: :bad_request
-    end
+      if @favorite.save
+        render json: { message: "Favorite created successfully" }, status: :created
+      else
+        render json: { errors: @favorite.errors.full_messages }, status: :bad_request
+      end
+    
+  end
+    
     #render template: "favorites/show"
   end
 
